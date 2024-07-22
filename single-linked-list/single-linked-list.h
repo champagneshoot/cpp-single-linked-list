@@ -282,13 +282,13 @@ bool operator<(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& 
 template <typename Type>
 bool operator<=(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs)
 {
-    return (lhs<rhs or lhs==rhs);
+    return !(rhs < lhs);
 }
 
 template <typename Type>
 bool operator>(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs)
 {
-    return (!(lhs < rhs ) and (lhs!=rhs));
+    return rhs < lhs;
 }
 
 template <typename Type>
