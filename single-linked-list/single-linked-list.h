@@ -222,15 +222,11 @@ public:
         assert(pos.node_ != nullptr);
         assert(pos.node_->next_node != nullptr);
         Node* node_to_delete = pos.node_->next_node;
-        if (node_to_delete) 
-        {
-            pos.node_->next_node = node_to_delete->next_node;
-            delete node_to_delete;
-            assert(size_ > 0);
-            --size_;
-            return Iterator{ pos.node_->next_node };
-        }
-        return end();
+        pos.node_->next_node = node_to_delete->next_node;
+        delete node_to_delete;
+        assert(size_ > 0);
+        --size_;
+        return Iterator{ pos.node_->next_node };
     }
 
     ~SingleLinkedList() { Clear(); };
